@@ -1,0 +1,69 @@
+/* Hide social media icons */
+#main-nav .social{
+  display: none;
+}
+
+/* Stack logo and list items above each other */
+#main-nav .container{
+  grid-template-columns: 1fr;
+  grid-gap: 1.2rem;
+}
+
+/* Center logo and list items horizontally */
+#main-nav ul,
+#main-nav .logo{
+  justify-self: center;
+}
+
+/* Give links in nav bar smaller padding */
+#main-nav ul li a{
+  padding: .4rem;
+}
+
+/* Change articles section from 3 columns to 2*/
+#home-articles .articles-container{
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* These two articles within the article section had grids within them and they where set to 2 columns. Let's set to 1 */
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child{
+  grid-template-columns: 1fr;
+  grid-column: 1;
+}
+
+@media(max-width: 600px){
+  /* Move showcase content to center, change articles section and footer to stack. Text align all to center*/
+  #showcase .showcase-container,
+  #home-articles .articles-container,
+  #main-footer .footer-container{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  /* Change copyright container to span 1 rather than 4 */
+  #main-footer .footer-container > *:last-child{
+    grid-column: 1;
+  }
+
+  /* Seperate footer items with some border. Only the first two items need border as the others have some form of seperation already */
+  #main-footer .footer-container> *:nth-child(1),
+  #main-footer .footer-container> *:nth-child(2){
+    border-bottom: 1px dotted #444;
+    padding: 1rem;
+  }
+
+  /* Stacking items on the non home page */
+  .page-container{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  /* Clearing span for non home page */
+  .page-container > *:first-child{
+    grid-row: 1;
+  }
+
+  /* Lessen font size for l-heading */
+  .l-heading{ font-size: 2rem }
+}
